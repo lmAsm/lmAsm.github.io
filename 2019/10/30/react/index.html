@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="hexo,优化," />
+  <meta name="keywords" content="react," />
 
 
 
@@ -90,16 +90,19 @@
 
 
 
-<meta name="description" content="hexo介绍使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~ 主页： https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;  主页的内容已经很详细了，这里只记录几点使用中发现的注意点。">
-<meta name="keywords" content="hexo,优化">
+<meta name="description" content="1、性能高1) 虚拟DOM，不总是直接操作DOM      React将DOM抽象为虚拟DOM，虚拟DOM其实就是用一个对象来描述DOM，通过对比前后两个对象的    差异，最终只把变化的部分重新渲染，提高渲染的效率   虚拟DOM比较轻，原生dom有200多个属性，比较重。">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo博客速搭">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;hexo%E4%BB%8B%E7%BB%8D&#x2F;index.html">
+<meta property="og:title" content="React知识整理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;react&#x2F;index.html">
 <meta property="og:site_name" content="lmAsm">
-<meta property="og:description" content="hexo介绍使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~ 主页： https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;  主页的内容已经很详细了，这里只记录几点使用中发现的注意点。">
+<meta property="og:description" content="1、性能高1) 虚拟DOM，不总是直接操作DOM      React将DOM抽象为虚拟DOM，虚拟DOM其实就是用一个对象来描述DOM，通过对比前后两个对象的    差异，最终只把变化的部分重新渲染，提高渲染的效率   虚拟DOM比较轻，原生dom有200多个属性，比较重。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-30T06:54:02.480Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;331769&#x2F;201903&#x2F;331769-20190313064216045-1949309311.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;331769&#x2F;201903&#x2F;331769-20190313064228469-620169573.png">
+<meta property="og:updated_time" content="2019-10-30T13:59:24.784Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;331769&#x2F;201903&#x2F;331769-20190313064216045-1949309311.png">
 
 
 
@@ -129,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/30/hexo介绍/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/30/react/"/>
 
 
 
 
 
-  <title>hexo博客速搭 | lmAsm</title>
+  <title>React知识整理 | lmAsm</title>
   
 
 
@@ -272,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/hexo%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/react/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lmAsm">
@@ -289,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo博客速搭</h1>
+          <h1 class="post-title" itemprop="name headline">React知识整理</h1>
         
 
         <div class="post-meta">
@@ -301,7 +304,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-30T10:30:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-30T21:58:00+08:00">
                 2019-10-30
               </time>
             
@@ -324,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -342,8 +345,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/30/hexo%E4%BB%8B%E7%BB%8D/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/30/hexo%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
+                <a href="/2019/10/30/react/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/30/react/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -351,7 +354,7 @@
 
           
           
-             <span id="/2019/10/30/hexo%E4%BB%8B%E7%BB%8D/" class="leancloud_visitors" data-flag-title="hexo博客速搭">
+             <span id="/2019/10/30/react/" class="leancloud_visitors" data-flag-title="React知识整理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,60 +385,73 @@
       
 
       
-        <h3 id="hexo介绍"><a href="#hexo介绍" class="headerlink" title="hexo介绍"></a>hexo介绍</h3><p>使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~</p>
-<p>主页： <strong><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></strong> </p>
-<p>主页的内容已经很详细了，这里只记录几点使用中发现的注意点。</p>
-<a id="more"></a>
+        <h4 id="1、性能高"><a href="#1、性能高" class="headerlink" title="1、性能高"></a>1、性能高</h4><p><strong>1) 虚拟DOM，不总是直接操作DOM</strong>     </p>
+<pre><code>React将DOM抽象为虚拟DOM，虚拟DOM其实就是用一个对象来描述DOM，通过对比前后两个对象的    差异，最终只把变化的部分重新渲染，提高渲染的效率
+  虚拟DOM比较轻，原生dom有200多个属性，比较重。</code></pre><a id="more"></a>
 
-<ul>
-<li><p><strong>文件目录说明（这里只简单说明，详细介绍请移步官网~~）</strong>：</p>
-<p>_config.yml ：配置文件 </p>
-<p>public ：生成的静态文件，这个目录最终会发布到服务器 </p>
-<p>source ：编写的markdown文件，_drafts草稿文件，_posts发布的文章 </p>
-<p>themes ：博客的模板 </p>
-</li>
-<li><p><strong>编写博客</strong></p>
-<p>官方提供的是命令的方式:  <code>hexo new [layout] &lt;title&gt;</code>,实际上，还有另一种方式可以节约我们的时间。将我们已经编写好的markdown文件直接放在_posts文件夹下，并且在最上方加上注释即可。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 30分钟搭建博客并发布到github</span><br><span class="line">date: 2019-10-29 17:49:54</span><br><span class="line">tags: </span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>本地运行</strong></p>
-<p>打开cmd进入到项目路径下，运行命令hexo server即可本地运行,默认访问地址为：<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong>。还有另一种运行方式，了解node的同学都知道，package.json文件中可以配置脚本，其实项目初始化后已经帮助我们配置好了，打开package.json文件即可看到如下内容，所以使用命令： <strong>npm run server</strong>  ，一样可以启动本地运行。同时，他提供的有build 、clean、deploy等命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;hexo generate&quot;,</span><br><span class="line">    &quot;clean&quot;: &quot;hexo clean&quot;,</span><br><span class="line">    &quot;deploy&quot;: &quot;hexo deploy&quot;,</span><br><span class="line">    &quot;server&quot;: &quot;hexo server&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>发布流程</strong></p>
-<p><strong>第一步</strong>：建仓库。</p>
-<p>在自己的github仓库中创建一个仓库(repository )，注意仓库名称，比如我的账号是lmAsm,那么仓库的名称必须是lmAsm.github.io，同时，仓库权限设置为public。</p>
-<p><strong>第二步</strong>：配置SSH。</p>
-<p>这个就不解释啦，相信大家都会哒~</p>
-<p><strong>第三步</strong>：修改项目的配置文件。</p>
-<p>打开项目根目录，如我的是：<code>D:\hexo</code>，然后用编辑器打开<code>_config.yml</code>配置文件，文件最后可以看到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type:</span><br></pre></td></tr></table></figure>
+<p>创建虚拟DOM方式：<br>      1）createElement()方式：不友好，太复杂<br>             创建虚拟DOM：<br>             //参数1：元素名称  参数2：元素属性对象(null表示无)  参数3：当前元素的子元素string||createElement() 的返回值<br>              React.createElement(‘div’,{title:’hello’},’hello React’)<br>         渲染虚拟DOM：<br>             // 参数1：虚拟dom对象  参数2：dom对象表示渲染到哪个元素内 参数3：回调函数<br>             ReactDOM.render(div,document.getElementById(‘app’))                  </p>
+<p>​    2）JSX方式</p>
+<p>​           jsx方最终扔被编译为createElement()方法<br>               推荐：使用 JSX 的方式创建组件<br>               JSX - JavaScript XML<br>               注意：JSX的语法需要通过 babel-preset-react 编译后，才能被解析执行</p>
+<p>​          注意点：<br>                    注意 1: 如果在 JSX 中给元素添加类, 需要使用 className 代替 class  , 类似：label 的 for属性，使用htmlFor代替<br>                    注意 2：在 JSX 中可以直接使用 JS代码，直接在 JSX 中通过 {} 中间写 JS代码即可<br>                    注意 3：在 JSX 中只能使用表达式，但是不能出现 语句！！！<br>                    注意 4：在 JSX 中注释语法：{/* 中间是注释的内容 */} </p>
+<p><strong>2) DOM diff算法</strong></p>
+<p><img src="https://img2018.cnblogs.com/blog/331769/201903/331769-20190313064216045-1949309311.png" alt="img"> </p>
+<p>​    实际上react的diff算法大大的提升了两个虚拟dom的比对性能，如图，虚拟dom什么时候会被比对，当数据发生改变的时候，虚拟dom才会去做新的比对，那么什么时候数据发生了改变了呢，要么改变了props，要么改变了state。其实props的改变是因为父组件的state发生了改变，所以其实都是setState数据才发生变化。之前说过setState是异步的，那么为什么是异步呢，实际上是为了提升react底层的性能，假设连续调用三次setState，变更三组数据，那么就会进行三次虚拟dom的比对，然后更新三次页面，假设三次改变，时间间隔非常的小，这样会比较浪费性能，所以react，把三次比对变成一次比对，这样就会优化比对带来的性能问题，所以设置react为异步函数。接下来看具体的diff算法 。</p>
+<p><img src="https://img2018.cnblogs.com/blog/331769/201903/331769-20190313064228469-620169573.png" alt="img"> </p>
+<p>​    如图，diff算法有个很重要的概念，叫做同级比较，首先会比较最顶层的虚拟dom节点是否一致，假设一致，再去比较下一个节点。假设第一层虚拟dom不一致，这个时候怎么办呢？这个时候react就不会往下比了，他会原始的虚拟dom下面的节点全部删除掉，重新生成一遍节点下面的所有dom，然后用重新生成的dom，替换原始页面的dom，也就是只比对一层dom，大家可能会想，这不是性能很低吗？假设第一层节点不同，下面的节点都相同，岂不是下面的节点都没法复用了，确实是这样的，虽然会造成一些dom节点的渲染浪费，但是这种比对有什么好处呢？我们说同层比对，带来的算法非常的简单，只要一层一层的做对比就行了，算法简单，带来的好处就是比对的速度会非常的快，所以可能会造成重新渲染的一些浪费，但大大减少了去比对的算法上的性能消耗。所以采用了同层比对的算法。 </p>
+<h4 id="2、state-和props"><a href="#2、state-和props" class="headerlink" title="2、state 和props"></a>2、state 和props</h4><p><strong>1) state</strong></p>
+<p>  1、state是组件对象最为重要的属性，值是对象（可以包含多个数据）        </p>
+<p>  2、组件被称为状态机，通过更新组件的state重新渲染页面。        </p>
+<p>  3、初始化state： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span> (props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props)</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      stateProp1 : value1,</span><br><span class="line">      stateProp2 : value2</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<p>修改成如下并保存:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>   4、读取某个state： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.state.statePropertyName</span><br></pre></td></tr></table></figure>
 
-<p><strong>第四步</strong>：部署</p>
-<p>打开命令行，执行命令<code>hexo deploy</code>或者命令<code>npm run deploy</code>。 到这里就大功告成啦！</p>
-<p>若是遇到异常可以执行下面命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>   5、更新state –&gt; 组件界面更新 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    stateProp1 : value1,</span><br><span class="line">    stateProp2 : value2</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 
-<p>如果出现下面的这个异常: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure>
+<p><strong>2) props</strong></p>
+<p>   1、每个组件对象都会有props属性；组件标签的所有属性都保存在props中。               </p>
+<p>   2、通过标签属性从组件外向组件内传递数据； 注意： 组件内部不要修改props数据。         </p>
+<p>   3、内部读取某个属性值： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.props.propertyName</span><br></pre></td></tr></table></figure>
 
-<p>输入以下命令，然后重新执行刚刚的两条命令 ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>   4、对props中的属性值进行类型限制和非必要限制： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> Person.propTypes = &#123;</span><br><span class="line">	name: PropTypes.string.isRequired,</span><br><span class="line">	age: PropTypes.number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这时候如果弹出一个对话框，输入在github上面的用户名和密码即可 。</p>
-<p>这时候我们就可以在浏览器输入<a href="https://yourname.github.io/" target="_blank" rel="noopener">https://yourname.github.io</a> 打开 查看效果啦。</p>
-</li>
-<li><p><strong>常见问题</strong></p>
-<p>1、执行deploy命令了，但是代码没有上传？</p>
-<p><strong>解决方案：</strong></p>
-<p>先执行<code>hexo generate</code>命令，生成静态文件，再执行hexo deploy上传，上传是只会上传public中生成的文件 .</p>
-</li>
-</ul>
-<p><strong>本文会持续更新记录优化博客遇到的一系列问题以及小技巧，欢迎关注，互放友链~~</strong></p>
+<p>   5、默认属性值： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Person.defaultProps = &#123;</span><br><span class="line">	name: &apos;Mary&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>3) refs</strong></p>
+<p>   1、组件内的标签都可以定义ref属性来标识自己           </p>
+<p>​        a. &lt;input type=”text” ref={input =&gt; this.msgInput = input}/&gt;                 </p>
+<p>​        b. 回调函数在组件初始化渲染完或卸载时自动调用           </p>
+<p>​    2、在组件中可以通过this.msgInput来得到对应的真实DOM元素 </p>
+<p><strong>注意点：</strong></p>
+<p>​    1、不要直接修改state属性的值，这样不会重新渲染组件。</p>
+<p>​    2、 state和props的主要区别是 props是不可变的，而state可以根据与用户交互来改变。</p>
+<p>​    3、React只需要更新组件的state，然后根据新的state重新渲染用户界面（不要操作DOM）。<br>        修改完state状态后，会自动调用render渲染界面。</p>
+<h4 id="3、生命周期"><a href="#3、生命周期" class="headerlink" title="3、生命周期"></a>3、生命周期</h4><p>​                                             </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mounting                     updating                    unmounting</span><br><span class="line">  getDefaultProps()         componentWillReceiveProps        componentWillUnmount</span><br><span class="line">          |                               |</span><br><span class="line">          |                               |</span><br><span class="line">    getInitialState()         shouldComponentUpdate    </span><br><span class="line">          |                               |</span><br><span class="line">          |                         true  |</span><br><span class="line">    componentWillMount           componentWillUpdate</span><br><span class="line">          |                               |</span><br><span class="line">          |                               |</span><br><span class="line">        render                          render</span><br><span class="line">          |                               |</span><br><span class="line">          |                               |</span><br><span class="line">    componentDidMount            componentDidUpdate</span><br></pre></td></tr></table></figure>
+
+<p><strong>1) mounting时期：</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">componentWillMount  //组件被挂载到页面之前执行（只会执行一次）</span><br><span class="line">componentDidMount   //组件被挂载到页面之后执行（只会执行一次）</span><br></pre></td></tr></table></figure>
+
+<p><strong>2) Updating时期：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//当子组件将要从父组件接收参数时执行</span><br><span class="line">//如果这个子组件第一次存在于父组件中，不会执行</span><br><span class="line">//当这个子组件仍存在于父组件中，才会被执行</span><br><span class="line">componentWillReceiveProps</span><br><span class="line"></span><br><span class="line">//componentWillReceiveProps之后，componentWillUpdate之前执行</span><br><span class="line">//用于判断页面是否需要被更新</span><br><span class="line">//需要有返回值（Boolean类型）: true 页面需要更新，false 页面不需要更新</span><br><span class="line">shouldComponentUpdate</span><br></pre></td></tr></table></figure>
+
+<p><strong>3) unmounting时期：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentWillUnmount</span><br></pre></td></tr></table></figure>
+
+<p><strong>4) 哪些生命周期函数不能调用setState方法，调了之后会怎么样？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、constructor()函数中不要调用setState方法，控制台会产生警告。为state赋值的话使用this.state 就行。</span><br><span class="line">2、componentWillMount 可以调用setState方法，但是组件不会重新渲染，因为它在render之前执行。</span><br><span class="line">3、render函数中不能调用setState方法，会导致循环调用。</span><br><span class="line">4、componentDidMount 可以调用setState方法。                                                       5、componentWillReceiveProps 可以调用setState方法，该方法仅在父组件重新渲染时触发。                </span><br><span class="line">6、shouldComponentUpdate 不能调用setState方法，会导致循坏调用。</span><br><span class="line">7、componentWillUpdate 不能调用setState方法，会导致循坏调用。</span><br><span class="line">8、componentDidUpdate 不能调用setState方法，会导致循坏调用。</span><br><span class="line">9、componentWillUnmount 调用setState无意义。</span><br></pre></td></tr></table></figure>
+
+<p> <strong>5) 父子组件执行顺序</strong></p>
+<p>第一次渲染时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父组件constructor执行 -&gt; 父组件componentWillMount执行 -&gt; </span><br><span class="line">子组件constructor执行 -&gt; 子组件componentWillMount执行 -&gt;</span><br><span class="line">子组件componentDidMount执行 -&gt; 父组件componentDidMount执行</span><br></pre></td></tr></table></figure>
+
+<p>当父组件更新时：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父组件shouldComponentUpdate执行 -&gt; 父组件componentWillUpdate执行 -&gt; 父组件render -&gt;</span><br><span class="line">子组件componentWillReceiveProps执行 -&gt; 子组件shouldComponentUpdate执行 -&gt; 子组件componentWillUpdate执行 -&gt; 子组件 render -&gt; 子组件componentDidUpdate执行 -&gt;</span><br><span class="line">父组件componentDidUpdate执行</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -452,9 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-          
-            <a href="/tags/%E4%BC%98%E5%8C%96/" rel="tag"><i class="fa fa-tag"></i> 优化</a>
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
           
         </div>
       
@@ -467,15 +481,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/10/30/jest&enzyme/" rel="next" title="前端单元测试库jest和enzyme介绍">
+                <i class="fa fa-chevron-left"></i> 前端单元测试库jest和enzyme介绍
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/30/jest&enzyme/" rel="prev" title="前端单元测试库jest和enzyme介绍">
-                前端单元测试库jest和enzyme介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -682,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo介绍"><span class="nav-number">1.</span> <span class="nav-text">hexo介绍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、性能高"><span class="nav-number">1.</span> <span class="nav-text">1、性能高</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、state-和props"><span class="nav-number">2.</span> <span class="nav-text">2、state 和props</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、生命周期"><span class="nav-number">3.</span> <span class="nav-text">3、生命周期</span></a></li></ol></div>
             
 
           </div>
