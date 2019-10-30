@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo,优化," />
 
 
 
@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="lmAsm">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta name="description" content="hexo介绍使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~ 主页： https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;  主页的内容已经很详细了，这里只记录几点使用中发现的注意点。  文件目录说明（这里只简单说明，详细介绍请移步官网~~）： _config.yml ：配置文件  public ：生成的静态文件，这个目录最终会发布到服务器  source ：编写的m">
+<meta name="keywords" content="hexo,优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客速搭">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;30&#x2F;hexo%E4%BB%8B%E7%BB%8D&#x2F;index.html">
 <meta property="og:site_name" content="lmAsm">
+<meta property="og:description" content="hexo介绍使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~ 主页： https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;  主页的内容已经很详细了，这里只记录几点使用中发现的注意点。  文件目录说明（这里只简单说明，详细介绍请移步官网~~）： _config.yml ：配置文件  public ：生成的静态文件，这个目录最终会发布到服务器  source ：编写的m">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-30T03:29:22.128Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -114,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/30/hexo介绍/"/>
 
 
 
 
 
-  <title>lmAsm</title>
+  <title>hexo博客速搭 | lmAsm</title>
   
 
 
@@ -139,8 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -233,9 +236,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -265,9 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/30/hexo%E4%BB%8B%E7%BB%8D/" itemprop="url">hexo博客速搭</a></h1>
+          <h1 class="post-title" itemprop="name headline">hexo博客速搭</h1>
         
 
         <div class="post-meta">
@@ -339,9 +340,7 @@
       
 
       
-        
-          
-            <h3 id="hexo介绍"><a href="#hexo介绍" class="headerlink" title="hexo介绍"></a>hexo介绍</h3><p>使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~</p>
+        <h3 id="hexo介绍"><a href="#hexo介绍" class="headerlink" title="hexo介绍"></a>hexo介绍</h3><p>使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~</p>
 <p>主页： <strong><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></strong> </p>
 <p>主页的内容已经很详细了，这里只记录几点使用中发现的注意点。</p>
 <ul>
@@ -393,8 +392,6 @@
 </ul>
 <p><strong>本文会持续更新记录优化博客遇到的一系列问题以及小技巧，欢迎关注，互放友链~~</strong></p>
 
-          
-        
       
     </div>
     
@@ -409,14 +406,22 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+            <a href="/tags/%E4%BC%98%E5%8C%96/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -426,10 +431,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -437,6 +443,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -457,8 +467,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -518,6 +537,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo介绍"><span class="nav-number">1.</span> <span class="nav-text">hexo介绍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -658,6 +693,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
