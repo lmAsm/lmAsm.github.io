@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>webpack和babel知识整理</title>
-    <url>/webpack_babel/10004.html</url>
+    <url>/10/31/webpack_babel/</url>
     <content><![CDATA[<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>Babel是一个js的转码器，主要用于将es2015+ 的代码转换为向后兼容版本的js代码，从而可以在现有的环境中运行。</p>
 <a id="more"></a>
 
@@ -145,7 +145,7 @@
   </entry>
   <entry>
     <title>React知识整理</title>
-    <url>/react/10003.html</url>
+    <url>/10/30/react/</url>
     <content><![CDATA[<h4 id="1、性能高"><a href="#1、性能高" class="headerlink" title="1、性能高"></a>1、性能高</h4><p><strong>1) 虚拟DOM，不总是直接操作DOM</strong>     </p>
 <pre><code>React将DOM抽象为虚拟DOM，虚拟DOM其实就是用一个对象来描述DOM，通过对比前后两个对象的    差异，最终只把变化的部分重新渲染，提高渲染的效率
   虚拟DOM比较轻，原生dom有200多个属性，比较重。</code></pre><a id="more"></a>
@@ -155,9 +155,9 @@
 <p>​           jsx方最终扔被编译为createElement()方法<br>               推荐：使用 JSX 的方式创建组件<br>               JSX - JavaScript XML<br>               注意：JSX的语法需要通过 babel-preset-react 编译后，才能被解析执行</p>
 <p>​          注意点：<br>                    注意 1: 如果在 JSX 中给元素添加类, 需要使用 className 代替 class  , 类似：label 的 for属性，使用htmlFor代替<br>                    注意 2：在 JSX 中可以直接使用 JS代码，直接在 JSX 中通过 {} 中间写 JS代码即可<br>                    注意 3：在 JSX 中只能使用表达式，但是不能出现 语句！！！<br>                    注意 4：在 JSX 中注释语法：{/* 中间是注释的内容 */} </p>
 <p><strong>2) DOM diff算法</strong></p>
-<p><img src="https://img2018.cnblogs.com/blog/331769/201903/331769-20190313064216045-1949309311.png" alt="img"> </p>
+<p><img src="/10/30/react/12.png" alt></p>
 <p>​    实际上react的diff算法大大的提升了两个虚拟dom的比对性能，如图，虚拟dom什么时候会被比对，当数据发生改变的时候，虚拟dom才会去做新的比对，那么什么时候数据发生了改变了呢，要么改变了props，要么改变了state。其实props的改变是因为父组件的state发生了改变，所以其实都是setState数据才发生变化。之前说过setState是异步的，那么为什么是异步呢，实际上是为了提升react底层的性能，假设连续调用三次setState，变更三组数据，那么就会进行三次虚拟dom的比对，然后更新三次页面，假设三次改变，时间间隔非常的小，这样会比较浪费性能，所以react，把三次比对变成一次比对，这样就会优化比对带来的性能问题，所以设置react为异步函数。接下来看具体的diff算法 。</p>
-<p><img src="https://img2018.cnblogs.com/blog/331769/201903/331769-20190313064228469-620169573.png" alt="img"> </p>
+<p><img src="/10/30/react/13.png" alt></p>
 <p>​    如图，diff算法有个很重要的概念，叫做同级比较，首先会比较最顶层的虚拟dom节点是否一致，假设一致，再去比较下一个节点。假设第一层虚拟dom不一致，这个时候怎么办呢？这个时候react就不会往下比了，他会原始的虚拟dom下面的节点全部删除掉，重新生成一遍节点下面的所有dom，然后用重新生成的dom，替换原始页面的dom，也就是只比对一层dom，大家可能会想，这不是性能很低吗？假设第一层节点不同，下面的节点都相同，岂不是下面的节点都没法复用了，确实是这样的，虽然会造成一些dom节点的渲染浪费，但是这种比对有什么好处呢？我们说同层比对，带来的算法非常的简单，只要一层一层的做对比就行了，算法简单，带来的好处就是比对的速度会非常的快，所以可能会造成重新渲染的一些浪费，但大大减少了去比对的算法上的性能消耗。所以采用了同层比对的算法。 </p>
 <h4 id="2、state-和props"><a href="#2、state-和props" class="headerlink" title="2、state 和props"></a>2、state 和props</h4><p><strong>1) state</strong></p>
 <p>  1、state是组件对象最为重要的属性，值是对象（可以包含多个数据）        </p>
@@ -222,7 +222,7 @@
   </entry>
   <entry>
     <title>前端单元测试库jest和enzyme介绍</title>
-    <url>/jest_enzyme/10002.html</url>
+    <url>/10/30/jest_enzyme/</url>
     <content><![CDATA[<p>我们可以通过完善单元测试来提高代码质量，并在一定程度上提高开发效率。  </p>
 <p>常见的 JS 单元测试框架有 mocha，jesmine，chai，Jest 等。</p>
 <a id="more"></a>
@@ -296,7 +296,7 @@
   </entry>
   <entry>
     <title>hexo博客速搭</title>
-    <url>/hexo/10001.html</url>
+    <url>/10/30/hexo/</url>
     <content><![CDATA[<h3 id="hexo介绍"><a href="#hexo介绍" class="headerlink" title="hexo介绍"></a>hexo介绍</h3><p>使用hexo搭建博客十分的简单，适用于想写博客但并不想花费过多时间用于搭建博客的同学~</p>
 <p>主页： <strong><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></strong> </p>
 <p>主页的内容已经很详细了，这里只记录几点使用中发现的注意点。</p>
