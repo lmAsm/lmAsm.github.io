@@ -2,8 +2,83 @@
 <search>
   <entry>
     <title>js知识点整理</title>
+    <url>/11/08/js-1/</url>
+    <content><![CDATA[<h2 id="js知识点（一）"><a href="#js知识点（一）" class="headerlink" title="js知识点（一）"></a>js知识点（一）</h2><p>记录一些js的小而碎的知识点，没有什么顺序，想到什么了就记下来了，帮助以后复习总结。</p>
+<a id="more"></a>
+
+<h3 id="数组的一些常用方法？"><a href="#数组的一些常用方法？" class="headerlink" title="数组的一些常用方法？"></a>数组的一些常用方法？</h3><h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p> 1）find方法会返回数组中第一个为true的数组元素，否则返回undefined<br> 2）可以传一个箭头函数作为参数。<br> 例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> //查找id为3数组元素：</span><br><span class="line"></span><br><span class="line">messageDetail:[</span><br><span class="line">	&#123;id:1,title:&apos;message0001&apos;,content:&apos;content11&apos;&#125;,</span><br><span class="line">	&#123;id:2,title:&apos;message0002&apos;,content:&apos;content22&apos;&#125;,</span><br><span class="line">	&#123;id:3,title:&apos;message0003&apos;,content:&apos;content33&apos;&#125;</span><br><span class="line">]</span><br><span class="line">const md = messageDetail.find((md)=&gt; md.id ===3 )</span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><p> 1）map方法返回一个新数组，数组中的元素为原始元素调用函数处理后的值。<br> 2）map不会改变原始数组。</p>
+<p> 例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1) messages.map((message,index)=&gt;(</span><br><span class="line">	&lt;li key=&#123;index&#125;&gt;&#123;message&#125;&lt;/li&gt;</span><br><span class="line">   ))</span><br><span class="line"></span><br><span class="line">2) messages.map( (message,index)=&gt;&#123;</span><br><span class="line">	return (</span><br><span class="line">		&lt;li key=&#123;index&#125;&gt;&#123;message&#125;&lt;/li&gt;</span><br><span class="line">	   )</span><br><span class="line">	&#125;	            </span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
+
+<p>两种写法是一样的， 箭头后的函数体有两种写法：第一种： 大括号，需要加return() ；第二种：小括号，不需要加return语句。</p>
+<h4 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h4><p>添加元素到末尾，可以添加任意多个。</p>
+<p> arr.push(“Jack”,”Sean”)</p>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h4><p>删除数组最后一项.</p>
+<p> arr.pop()</p>
+<h4 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h4><p>添加元素到开头，   </p>
+<p>arr.unshift(“Jack”,”Sean”) </p>
+<h4 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h4><p>删除数组的第一项，  </p>
+<p>arr.shift()</p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>排序数组，可以接收一个函数作为参数 ， 注意： 不能给数字数组排序，不过可以接收一个比较函数。  arr.sort(function(a,b){return a-b;})</p>
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><p>反转数组，原数组会被改变</p>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h4><p>截取数组， 一个参数的话是开头；两个参数的话不包括第二个参数的值。</p>
+<p>splice() 可以实现对数组的删除、插入、和替换。</p>
+<p><strong>删除</strong>： 可以删除任意数量的项，只需指定 2 个参数：要删除的第一项的位置和要删除的项数。</p>
+<p>例如， splice(0,2)会删除数组中的前两项。</p>
+<p><strong>插入</strong>： 可以向指定位置插入任意数量的项，只需提供 3 个参数：起始位置、 0（要删除的项数）和要插入的项。</p>
+<p>例如，splice(2,0,4,6)会从当前数组的位置 2 开始插入4和6。</p>
+<p> <strong>修改</strong>： 可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需指定 3 个参数：起始位置、要删除的</p>
+<p>项数和要插入的任意数量的项。插入的项数不必与删除的项数相等。</p>
+<p>例如，splice (2,1,4,6)会删除当前数组位置 2 的项，然后再从位置 2 开始插入4和6。</p>
+<h4 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h4><p>用于连接多个数组，返回一个新数组。</p>
+<p>例如,  var arr = [1,2,3];   var arr2 = [4,5,6];   arr.concat(arr2)   // arr数组的值为：[1,2,3,4,5,6]</p>
+<h4 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h4><p>把数组中的所有元素放入一个字符串，元素是通过指定的分隔符进行分隔，默认为逗号。</p>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><p>方法创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素，不会改变原数组。</p>
+<p> 如： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var arr = [</span><br><span class="line">	&#123; id: 1, text: &apos;aa&apos;, done: true &#125;,</span><br><span class="line">	&#123; id: 2, text: &apos;bb&apos;, done: false &#125;</span><br><span class="line">]	</span><br><span class="line">console.log(arr.filter(item =&gt; item.done))    // [&#123;id: 1, text: &quot;aa&quot;, done: true&#125;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object的一些方法？"><a href="#Object的一些方法？" class="headerlink" title="Object的一些方法？"></a>Object的一些方法？</h3><h4 id="Object-assign-target-source1-source2-…"><a href="#Object-assign-target-source1-source2-…" class="headerlink" title="Object.assign(target,source1,source2,…)"></a>Object.assign(target,source1,source2,…)</h4><p>该方法主要用于对象的合并，将源对象source的所有可枚举属性合并到目标对象target上,此方法只拷贝源对象的自身属性，不拷贝继承的属性。</p>
+<p>Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。</p>
+<p>注意：<code>Object.assign</code> 方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。同名属性会替换。 </p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const target = &#123;</span><br><span class="line">    x : 0,</span><br><span class="line">    y : 1</span><br><span class="line">&#125;;</span><br><span class="line">const source = &#123;</span><br><span class="line">    x : 1,</span><br><span class="line">    z : 2 ,</span><br><span class="line">    fn : &#123;</span><br><span class="line">        number : 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Object.assign(target, source);  </span><br><span class="line">// target  &#123;x : 1, y : 1, z : 2, fn : &#123;number : 1&#125;&#125;    // 同名属性会被覆盖</span><br><span class="line">// source  &#123;x : 1, z : 2, fn : &#123;number : 1&#125;&#125;</span><br><span class="line">target.fn.number = 2;                                  // 拷贝为对象引用</span><br><span class="line">// source  &#123;x : 1, z : 2, fn : &#123;number : 2&#125;&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">function Person()&#123;</span><br><span class="line">    this.name = 1</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.country = &apos;china&apos;;</span><br><span class="line">let student = new Person();</span><br><span class="line">student.age = 29 ;</span><br><span class="line">const young = &#123;insterst : &apos;sport&apos;&#125;;</span><br><span class="line">Object.assign(young,student);</span><br><span class="line">// young &#123;instest : &apos;sport&apos; , age : 29, name: 1&#125;      // 只能拷贝自身的属性，不能拷贝prototype</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">Object.assign([1, 2, 3], [4, 5])                      // 把数组当作对象来处理</span><br><span class="line">// [4, 5, 3]var target = &#123;&#125;;</span><br><span class="line">var source1 = &#123; b: 2 &#125;;</span><br><span class="line">var source2 = &#123; c: 3 &#125;;</span><br><span class="line">Object.assign(target, source1, source2);</span><br><span class="line">target // &#123; b:2, c:3&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-keys"><a href="#Object-keys" class="headerlink" title="Object.keys()"></a>Object.keys()</h4><p>返回由key组成的数组。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var data=&#123;a:1,b:2,c:9,d:4,e:5&#125;;</span><br><span class="line">console.log(data);                          //&#123;a: 1, b: 2, c: 9, d: 4, e: 5&#125;</span><br><span class="line">console.log(Object.keys(data));             //[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;]</span><br><span class="line">Object.keys(data).map((key,item)=&gt;&#123;</span><br><span class="line">	console.log(key,data[key]);//key=&gt;属性名    data[key]=&gt;属性值</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-create-prototype-propertiesObject"><a href="#Object-create-prototype-propertiesObject" class="headerlink" title="Object.create(prototype[,propertiesObject])"></a><strong>Object.create</strong>(prototype[,propertiesObject])</h4><p>使用指定的原型对象及其属性去创建一个新的对象 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var parent = &#123;</span><br><span class="line">    x : 1,</span><br><span class="line">    y : 1</span><br><span class="line">&#125;</span><br><span class="line">var child = Object.create(parent,&#123;</span><br><span class="line">    z : &#123;                           // z会成为创建对象的属性</span><br><span class="line">        writable:true,</span><br><span class="line">        configurable:true,</span><br><span class="line">        value: &quot;newAdd&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(child);</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="/11/08/js-1/12.png" alt></p>
+<h4 id="Object-values"><a href="#Object-values" class="headerlink" title="Object.values()"></a>Object.values()</h4><p>方法返回一个给定对象自己的所有可枚举属性值的数组，值的顺序与使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in" target="_blank" rel="noopener"><code>for...in</code></a>循环的顺序相同 ( 区别在于 for-in 循环枚举原型链中的属性 )。 </p>
+<p><code>Object.values</code>会过滤属性名为 Symbol 值的属性。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var an_obj = &#123; 100: &apos;a&apos;, 2: &apos;b&apos;, 7: &apos;c&apos; &#125;;</span><br><span class="line">console.log(Object.values(an_obj)); // [&apos;b&apos;, &apos;c&apos;, &apos;a&apos;]</span><br><span class="line"> </span><br><span class="line">var obj = &#123; 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos; &#125;;</span><br><span class="line">console.log(Object.values(obj)); // [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-entries"><a href="#Object-entries" class="headerlink" title="Object.entries()"></a>Object.entries()</h4><p>返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in" target="_blank" rel="noopener"><code>for...in</code></a> 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const obj = &#123; foo: &apos;bar&apos;, baz: 42 &#125;;</span><br><span class="line">console.log(Object.entries(obj)); // [ [&apos;foo&apos;, &apos;bar&apos;], [&apos;baz&apos;, 42] ]</span><br><span class="line"> </span><br><span class="line">const simuArray = &#123; 0: &apos;a&apos;, 1: &apos;b&apos;, 2: &apos;c&apos; &#125;;</span><br><span class="line">console.log(Object.entries(simuArray)); // [ [&apos;0&apos;, &apos;a&apos;], [&apos;1&apos;, &apos;b&apos;], [&apos;2&apos;, &apos;c&apos;] ]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-is"><a href="#Object-is" class="headerlink" title="Object.is()"></a>Object.is()</h4><p>判断两个值是否相同。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Object.is(0, -0);            // false</span><br><span class="line">Object.is(-0, -0);           // true</span><br><span class="line">Object.is(NaN, 0/0);         // true</span><br><span class="line">Object.is(null, null);       // true</span><br><span class="line">var test = &#123; a: 1 &#125;;</span><br><span class="line">Object.is(test, test);       // true</span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze()"></a>Object.freeze()</h4><p>冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。 </p>
+<h4 id="Object-isFrozen"><a href="#Object-isFrozen" class="headerlink" title="Object.isFrozen()"></a>Object.isFrozen()</h4><p>判断一个对象是否被<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" target="_blank" rel="noopener">冻结</a>.</p>
+]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>js</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>js知识点整理</title>
     <url>/11/08/js-2/</url>
-    <content><![CDATA[<h2 id="js知识点"><a href="#js知识点" class="headerlink" title="js知识点"></a>js知识点</h2><p>记录一些js的小而碎的知识点，没有什么顺序，想到什么了就记下来了，帮助以后复习总结。</p>
+    <content><![CDATA[<h2 id="js知识点（二）"><a href="#js知识点（二）" class="headerlink" title="js知识点（二）"></a>js知识点（二）</h2><p>记录一些js的小而碎的知识点，没有什么顺序，想到什么了就记下来了，帮助以后复习总结。</p>
 <a id="more"></a>
 
 <h4 id="js、es、nodejs的区别："><a href="#js、es、nodejs的区别：" class="headerlink" title="js、es、nodejs的区别："></a>js、es、nodejs的区别：</h4><p>​    <strong>-es</strong>：定义了各种语法，是语法和语义上的标准。 主要包括：语法、类型、语句、关键字、保留字、操作符、对象。<br>    <strong>-js</strong>: 基于es标准实现的，但除了ECMAScript（语言基础，如：语法、数据类型结构以及一些内置对象）外，还包括web API。 如DOM、BOM等。<br>    <strong>-nodejs</strong>: 除了包括es外，还包括操作系统、文件系统、网络系统、数据库等。基于V8引擎，运行在服务端的js。</p>
