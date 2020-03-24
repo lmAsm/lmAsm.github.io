@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b481aa;
+  background: #e4e26a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2990,10 +2990,4 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
-}
-* {
-  cursor: url("http://storage.jd.com/lm-bucket1/photo2.ico"), auto !important;
-}
-:active {
-  cursor: url("http://storage.jd.com/lm-bucket1/photo2.ico"), auto !important;
 }
