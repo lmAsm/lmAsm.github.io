@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mongodb</title>
+    <url>/01/12/mangoDB/</url>
+    <content><![CDATA[<h2 id="MangoDB"><a href="#MangoDB" class="headerlink" title="MangoDB"></a>MangoDB</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>非关系数据库；文档型数据库</p>
+<p>MongoDB的数据模型是面向文档的，所谓文档是一种类似于JSON的i，简单理解<br>MongoDB这个数据库中存的是各种各样的JSON。</p>
+<a id="more"></a>
+
+<p>偶数版本为稳定版，奇数版本为开发版。</p>
+<p>三个概念：</p>
+<ul>
+<li><p>数据库</p>
+</li>
+<li><p>集合 </p>
+<p>   类似数组，可以存放文档</p>
+</li>
+<li><p>文档</p>
+<p>   文档数据库中的最小单位，我们存储和操作的内容都是文档</p>
+</li>
+</ul>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p>启动服务器：</p>
+<p>​    <strong>mongodb</strong></p>
+<pre><code>**mongod** **--dbpath 数据库 --port 123**</code></pre><p>启动客户端：</p>
+<p>​    输入 <strong>mongo</strong>  连接<strong>mongodb</strong>，出现 <strong>&gt;</strong></p>
+<p>显示当前所有数据库：</p>
+<p>​    <strong>show dbs  /  show databases</strong></p>
+<p>进入指定数据库：（不存在时自动创建）</p>
+<p>​    <strong>use  test</strong></p>
+<p>显示当前在哪个数据库中：</p>
+<p>​    <strong>db</strong></p>
+<p>显示当前数据库中所有的集合：</p>
+<p>​    <strong>show collections</strong></p>
+<h3 id="增"><a href="#增" class="headerlink" title="增"></a><strong>增</strong></h3><p> 向某个集合中插入文档:</p>
+<p>​    <strong>db.collection.insert({name:”zhangsan”,age:12,gender:”男”});</strong></p>
+<p><strong>插入</strong>多个文档：(数组)</p>
+<p>​    <strong>db.collection.insert([</strong></p>
+<p>​        <strong>{name:”zhangsan”,age:12,gender:”男”},</strong></p>
+<p>​        <strong>{name:”zhangsan”,age:12,gender:”男”},</strong></p>
+<p>​        <strong>{name:”zhangsan”,age:12,gender:”女”},</strong></p>
+<p>​    <strong>]);</strong></p>
+<p><strong>插入</strong>文档的其他方法：</p>
+<p>​    <strong>db.collection.insertOne();</strong>     一次只能插入一个文档</p>
+<p>​    <strong>db.collection.insertMany();</strong>  一次必须插入多个文档，即数组形式。</p>
+<p>  <strong><u>mongodb会自动帮我们添加一个字段：_id，目的就是保证数据的唯一性。我们可以自己指定该字段的值，但是也要保证它的唯一性。</u></strong></p>
+<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><p> <strong>查询</strong>文档：</p>
+<p>​    *<em>db.collection.find(); *</em>       //查询所有符合条件的文档，返回的是一个数组。</p>
+<p>​        find()中可以接收一个对象作为条件参数，{} 表示查询所有的文档，{字段名:字段值}表示查询指定值的文档，如：</p>
+<p>​        db.collection.find({age:28})[1];</p>
+<p>​        db.collection.find({age:28,name:”张三”});    </p>
+<p>​    <strong>db.collection.find({}).count();</strong>   //查询所有结果的数量</p>
+<p>​    <strong>db.collection.findOne();</strong>     //查询集合中符合条件的第一个文档，返回的是一个文档对象。</p>
+<p>​        db.collection.findOne({name:”张三”}).name;</p>
+<h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><p>   <strong>修改</strong>文档：</p>
+<p>​    <strong>db.collection.update(查询条件，新对象)：<u>默认情况会使用新对象来替换旧的对象。默认情况下只会修改第一个。若只想修改指定的字段，需要使用“修改操作符”。</u></strong></p>
+<p>​        <strong>db.collection.update({name:”张三”},{age:28});</strong></p>
+<p>   修改操作符：</p>
+<p>​    <strong>$set:</strong> 修改文档中的指定属性，如：</p>
+<p>​        db.collection.update({name:”张三”} , { $set:{</p>
+<p>​            address:”郑州市”,</p>
+<p>​            gender:”女”</p>
+<p>​        }});</p>
+<p>​    <strong>$unset:</strong> 删除文档中的指定属性。与$set使用方法相同。</p>
+<p>​    <strong>db.collection.updateMany(查询条件，新对象)： 会修改所有的对象。</strong></p>
+<p>​    <strong>db.collection.updateOne(查询条件，新对象)： 只会修改一个对象。</strong></p>
+<h3 id="删"><a href="#删" class="headerlink" title="删"></a>删</h3><p>​    <strong>db.collection.remove({});</strong>             //传条件和 find()一样。remove()必须传参。</p>
+<p>​        db.collection.remove({age:12 }, true) ;   //第二个参数为true时，只删除一个。    </p>
+<p>​    <strong>db.collection.deleteOne();</strong></p>
+<p>​    <strong>db.collection.deleteMany();</strong></p>
+<p>​    <strong>db.collection.drop();</strong>      //删除集合</p>
+<p>​    <strong>db.dropDatabase();</strong>             //删除数据库    </p>
+]]></content>
+      <categories>
+        <category>mongodb</category>
+      </categories>
+      <tags>
+        <tag>mongodb</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker基础</title>
     <url>/01/10/docker/</url>
     <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h4 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h4><p>​    镜像image：静态、分层存储的文件系统。</p>
