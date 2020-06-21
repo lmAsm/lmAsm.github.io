@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>docker基础</title>
+    <url>/01/10/docker/</url>
+    <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h4 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h4><p>​    镜像image：静态、分层存储的文件系统。</p>
+<p>​    容器container：运行的实体，可以被创建、启动、停止、删除、暂停等。</p>
+<p>​          容器的本质是进程，但有独立的命名空间。</p>
+<p>​          容器在运行时以镜像为基础，创建一个存储层。存储层的生命周期与容器相同，会随着容器删除而丢失。</p>
+<p>​          容器的存储层应当保持无状态化，文件写入操作应使用数据卷(volume), 或者绑定宿主目录。</p>
+<p>​    仓库注册表registry：集中存储、分发镜像的服务。</p>
+<h4 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h4><p>​    1）<strong>docker images</strong> ： 列出本地主机上的镜像</p>
+<p>​        docker images|grep tomcat ： 只查询tomcat的镜像</p>
+<p>​    2）<strong>docker pull</strong> ：从Docker Hub中拉取或者更新执行镜像</p>
+<p>​    3）<strong>docker run ：</strong></p>
+<p>​         <strong>-d</strong>  让docker容器在后台运行</p>
+<p>​         <strong>-p</strong>  标识通知Docker容器内部使用的网络端口映射到我们使用的主机上</p>
+<p>​         <strong>–name</strong>  定义一个do的名字，如果在执行 docker run时没有指定name，那么deamon会自动生成一个随机数字符串当做UUID。</p>
+<p>​         <strong>-e</strong>  设置环境变量，或者覆盖已存在的环境变量。</p>
+<p>​       如：<strong>docker run –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql/mysql-server:latest</strong> </p>
+<p>​      含义：容器的名字为mysql，将容器的3306端口映射到本机的3306端口，mysql数据库的密码为1234，运行的镜像为mysql/mysql-server:latest </p>
+<p>​    4）<strong>docker ps：</strong> </p>
+<p>​         <strong>-a</strong>  查看已经创建的容器</p>
+<p>​         <strong>-s</strong>  查看已经启动的容器</p>
+<p>​    5）<strong>docker start  containerName</strong>    启动容器名为containerName的容器。</p>
+<p>​    6）<strong>docker stop  containerName</strong>     停止容器名为containerName的容器。</p>
+<p>​    7）<strong>docker  rm    containerName</strong>     删除容器名为containerName的容器。</p>
+<p>​    8）<strong>docker  rmi   img_name</strong>              删除镜像名为img_name的镜像。</p>
+<p>​    9）<strong>docker rename  old_name  new_name</strong>    重命名一个容器。</p>
+<p>​    10) *<em>docker exec *</em>  进入容器</p>
+<p>​        如：docker exec  -it  container_Id/container_Name  bash  进入容器，并进入到bash中</p>
+<p>​            docker exec  -it  container_name /bin/bash  进入容器并，进入到bash中</p>
+<p>​             有三个参数：</p>
+<p>​                -it：进入交互模式 </p>
+<p>​                -d：在后台运行。</p>
+<p>​    11）<strong>docker search xx</strong>：查找docker hub上的所有镜像。</p>
+<p>​    12）<strong>docker inspect containerId(容器ID或容器名)</strong>  ： 查看对应容器的具体配置信息 </p>
+<p>​    13）<strong>docker port containerId</strong> ： 查看对应容器端口映射 </p>
+<p>​    14）<strong>docker cp  dir  newDir</strong>： 拷贝.既可以拷贝文件也可以拷贝整个目录.可以在本机和容器中相互拷贝!!</p>
+<p>​        如：        </p>
+<p>​                 <strong>docker cp myTomcat:/opt/apache-tomcat-7.0.62/webapps D:/docker_tomcat</strong> ：将myTomcat容器下的/opt/apache-tomcat-7.0.62/webapps目录拷贝到本机的D:/docker_tomcat中。</p>
+<p>​         <strong>docker cp nginx:/usr/share/nginx/html/index.html D:/docker_nginx2</strong> ： 将nginx容器下的/usr/share/nginx/html/index.html文件拷贝到D:/docker_nginx2中。</p>
+<pre><code>15）**docker top  containerName:**查看容器中运行的进程信息 </code></pre><p> <strong>docker run 和 docker start的区别：</strong>                </p>
+<p>​        docker run 只在第一次运行时使用，将镜像放到容器中，以后再启动这个容器时，只需要使用命令docker start即可。</p>
+<p>​        docker run相当于执行了两步操作：将镜像放入容器中（docker create），然后将容器启动，使之变成运行时容器（docker start）</p>
+<p><img src="http://dockerone.com/uploads/article/20151103/ea18907dedcd8893b39ae1f9e3ad8a3e.png" alt="7.png">   </p>
+<p>​    16）docker logs containerId 查看某一容器的日志</p>
+<h4 id="docker安装mysql："><a href="#docker安装mysql：" class="headerlink" title="docker安装mysql："></a>docker安装mysql：</h4><p>​    1、拉取官方镜像：</p>
+<p>​        docker pull mysql/mysql-server:latest</p>
+<p>​    2、查看镜像：</p>
+<p>​        docker images</p>
+<p>​    3、创建并运行一个容器：</p>
+<p>​        docker run –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql/mysql-server:latest</p>
+<p>​    4、查看已经创建的容器：</p>
+<p>​        docker ps -a</p>
+<p>​    5、查看正在运行的容器：</p>
+<p>​        docker ps -s</p>
+<p>​    6、启动一个容器：</p>
+<p>​        docker start container_name </p>
+<p>​    7、进入容器内部连接mysql：</p>
+<p>​        1) 首先进入容器内部,并进入bash： docker exec -it  containerId bash</p>
+<p>​        2) mysql -u root -p </p>
+<p>​    8、用本机连接mysql：</p>
+<p>​        可以使用idea自带的mysql连接工具。</p>
+<p>​          <strong>有个坑</strong>：</p>
+<p>​            可能会有这种情况：进入容器内部是可以连接上MySQL的，但是本机连不上。</p>
+<p>​            解决方法：</p>
+<p>​                1）select host,user,plugin.authentication_string from mysql.user; 使用该命令查看root用户的访问权限，host为%代表不限制。否则是被限制的。</p>
+<p>​                2）update mysql.user set host=’%’ where user = ‘root’; 修改root的host为%。</p>
+<p>​                3） flush privileges; 命令本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里。MySQL用户数据和权限有修改后，希望在”不重启MySQL服务”的情况下直接生效，那么就需要执行这个命令。通常是在修改ROOT帐号的设置后，怕重启后无法再登录进来，那么直接flush之后就可以看权限设置是否生效。而不必冒太大风险。</p>
+<p>​                4) 再次用idea尝试连接mysql即可成功。</p>
+<h4 id="docker安装tomcat："><a href="#docker安装tomcat：" class="headerlink" title="docker安装tomcat："></a>docker安装tomcat：</h4><p>​    1、<strong>docker search tomcat</strong> :  查询所有的tomcat</p>
+<p>​    2、<strong>docker pull consol/tomcat-7.0</strong> ： 拉取一个镜像</p>
+<p>​    3、<strong>docker run –name my-tomat -P -d consol/tomcat-7.0</strong> ： 随便创建一个容器</p>
+<p>​        –name my-tomat ： 定义容器的名字为my-tomat </p>
+<p>​        -P ：把容器的端口随机映射到本机的一个端口</p>
+<p>​        -d： 后台运行容器</p>
+<p>​        consol/tomcat-7.0：镜像的名字</p>
+<p>​    4、查看docker中的tomcat是在哪个目录中：</p>
+<p>​        1）首先需要启动容器。   docker run …</p>
+<p>​        2）进入容器内部。    docker exec -it …</p>
+<p>​        3）查看目录。      ls </p>
+<p>​        4）进入opt目录。  cd /opt</p>
+<p>​        5）cd tomcat   pwd  ，即可查看tomcat的目录。</p>
+<p>​    5、将docker中的tomcat中的conf、logs、webapps三个文件夹拷贝到本地中：</p>
+<p>​         <strong>docker cp myTomcat:/opt/apache-tomcat-7.0.62/webapps D:/docker_tomcat</strong></p>
+<p>​        myTomcat是容器的名字；/opt/apache-tomcat-7.0.62是第四步得到的tomcat在docker中的目录；</p>
+<p>​        将在docker中的tomcat中的webapps目录拷贝到本地D盘docker_tomcat目录中。</p>
+<p>​    6、<strong>docker run -P –name tomcat7 -v D:/docker_tomcat/webapps:/opt/apache-tomcat-7.0.62/webapps -v D:/docker_tomcat/conf:/opt/apache-tomcat-7.0.62/conf -v D:/docker_tomcat/logs:/opt/apache-tomcat-7.0.62/logs -d consol/tomcat-7.0</strong></p>
+<p>​    这一步是真正的创建一个容器，并且是通过映射目录的方式。</p>
+<p>​    -P： 把容器的端口随机映射到本机的一个端口</p>
+<p>​    –name： tomcat7</p>
+<p>​    -v  ：把docker中的webapps logs conf 目录分别映射到本机的my-tomcat中对应的目录中 </p>
+<p>​    -v D:/docker_tomcat/webapps:/opt/apache-tomcat-7.0.62/webapps：将docker中的tomcat中的webapps目录映射到本地的D:/docker_tomcat/webapps目录中。</p>
+<p>​    这样映射有什么好处呢，就是把war包扔到本机的my-tomcat/webapps中就可以了啊 ，docker自动会部署到tomcat中的。修改了本机conf中的配置文件，docker中的配置文件也会立即生效的欧，因为已经映射了嘛，不相信的话你可以修改一下，然后进入docker中确认一下。</p>
+<p> <strong>通过映射目录的方式，以后只要把war包放到映射目录里，Docker会自动拷贝一份到容器中，是不是很方便呢。</strong> </p>
+<p>​    </p>
+<h4 id="安装redis："><a href="#安装redis：" class="headerlink" title="安装redis："></a>安装redis：</h4><p>​    docker run -d -p 6379:6379 –name redis01 redis  运行容器</p>
+<p>​    docker exec -it redis01 redis-cli  从容器进入redis客户端</p>
+<h4 id="安装nginx："><a href="#安装nginx：" class="headerlink" title="安装nginx："></a>安装nginx：</h4><p>​    docker run -d -p 80:80 nginx   吧容器中的nginx的80端口映射到本机的80端口。（前面的是本机端口）</p>
+<p>​    </p>
+<p><strong>注意</strong>：当docker运行nginx时，外界访问还是docker所在的那个IP地址，就相当于nginx在那台机器上运行一样。但对于docker所在的那台机器来说，nginx就是附属于docker的一个镜像。若操作nginx还是由docker登录nginx容器，进行操作。登录的nginx容器就是一个linux系统，只不过只有nginx而已，nginx按照linux默认路径安装。  路径：/usr/share/nginx/html </p>
+<p>通过映射目录的方式创建nginx容器：</p>
+<p>​    <strong>docker run –name myNginx -p 23456:80 -d -v D:\\docker_nginx\\html:/usr/share/nginx/html nginx</strong></p>
+<p>含义是吧docker中nginx中的html目录映射到 D:\\docker_nginx\\html 目录中。</p>
+<h4 id="linux命令："><a href="#linux命令：" class="headerlink" title="linux命令："></a>linux命令：</h4><p>uname -a ：Linux查看版本当前操作系统内核信息 </p>
+<p>cat /proc/version ：Linux查看当前操作系统版本信息 </p>
+<p>cat /proc/cpuinfo：Linux查看cpu相关信息，包括型号、主频、内核信息等 </p>
+<p>cat /etc/redhat-release：查看版本</p>
+<p><strong>Dockerfile:</strong></p>
+<p> 用来创建自定义的image，在包含Dockerfile文件的目录下可以使用build命令来创建新的image。</p>
+<p>​    如： docker build -t wikift/wikift-server .</p>
+<p>dockerfile文件 <strong>关键字</strong>：</p>
+<p>1、 from     基于哪个镜像</p>
+<p>2、run     安装软件用</p>
+<p>3、MAINTAINER   镜像创建者</p>
+<p>4、</p>
+<h4 id="docker部署springboot项目："><a href="#docker部署springboot项目：" class="headerlink" title="docker部署springboot项目："></a>docker部署springboot项目：</h4><p> 1、springboot项目打包成jar包准备好。</p>
+<p> 2、 编写Dockerfile文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM java:8</span><br><span class="line"></span><br><span class="line"># author infomation</span><br><span class="line">MAINTAINER lm</span><br><span class="line"></span><br><span class="line"># VOLUME 指定了临时文件目录为/tmp。其效果是在主机 /var/lib/docker 目录下创建了一个临时文件，并链接到容器的/tmp。改步骤是可选的，如果涉及到文件系统的应用就很有必要了。/tmp目录用来持久化到 Docker 数据文件夹，因为 Spring Boot 使用的内嵌 Tomcat 容器默认使用/tmp作为工作目录</span><br><span class="line">VOLUME /tmp</span><br><span class="line"></span><br><span class="line"># 项目的 jar 文件作为 “app.jar” 添加到容器</span><br><span class="line">ADD lmasm-0.0.1-SNAPSHOT.jar app.jar</span><br><span class="line"></span><br><span class="line">RUN sh -c &apos;touch /app.jar&apos;</span><br><span class="line"></span><br><span class="line">ENV JAVA_OPTS=&quot;&quot;</span><br><span class="line"></span><br><span class="line">ENTRYPOINT [ &quot;sh&quot;, &quot;-c&quot;, &quot;java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar&quot; ]</span><br></pre></td></tr></table></figure>
+
+<p> 3、 将两个文件放到同一文件夹下。</p>
+<p> 4、使用命令： <strong>docker build -t spring-boot-docker .</strong>   构建镜像，运行完命令后可以看到生成了名为spring-boot-docker的镜像。</p>
+<p>​    -t代表要构建的镜像的名字和标签，通常 name:tag 或者 name 格式，Tag默认是latest </p>
+<p>​    .代表当前目录，也就是Dockerfile所在的目录。 </p>
+<p> 5、使用命令：<strong>docker run -p 8080:8080 spring-boot-docker</strong>  运行容器。 </p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js知识点整理</title>
     <url>/11/08/js-1/</url>
     <content><![CDATA[<h2 id="js知识点（一）"><a href="#js知识点（一）" class="headerlink" title="js知识点（一）"></a>js知识点（一）</h2><p>记录一些js的小而碎的知识点，没有什么顺序，想到什么了就记下来了，帮助以后复习总结。</p>
