@@ -6,6 +6,8 @@
     <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h4 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h4><p>​    镜像image：静态、分层存储的文件系统。</p>
 <p>​    容器container：运行的实体，可以被创建、启动、停止、删除、暂停等。</p>
 <p>​          容器的本质是进程，但有独立的命名空间。</p>
+<a id="more"></a>
+
 <p>​          容器在运行时以镜像为基础，创建一个存储层。存储层的生命周期与容器相同，会随着容器删除而丢失。</p>
 <p>​          容器的存储层应当保持无状态化，文件写入操作应使用数据卷(volume), 或者绑定宿主目录。</p>
 <p>​    仓库注册表registry：集中存储、分发镜像的服务。</p>
